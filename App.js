@@ -24,8 +24,7 @@ return (
 
 function ChatStack() {
   return (
-    <Stack.Navigator defaultScreenOptions={WelcomeScreen}>
-      <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
+    <Stack.Navigator defaultScreenOptions={Home}>
       <Stack.Screen name='Home' component={Home} />
       <Stack.Screen name='Chat' component={Chat} />
     </Stack.Navigator>
@@ -35,9 +34,11 @@ function ChatStack() {
 function AuthStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
-      <Stack.Screen name='Login' component={Login} />
+       <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
+        <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Signup' component={Signup} />
+      <Stack.Screen name='Home' component={Home} />    
+      <Stack.Screen name='Chat' component={Chat} />
     </Stack.Navigator>
   );
 }

@@ -8,6 +8,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 //import {useDispatch} from 'react-redux';
 //import {login} from '../reducers';
 import {AppStyles} from './AppStyles';
+import Login from './Login';
+import Signup from './Signup';
+import Chat from './Chat';
+import Home from './Home';
 
 const backImage = require("../assets/BG_4BH_375_1.png");
 const LogoImage = require("../assets/Logo_4BH_375.png");
@@ -56,7 +60,7 @@ function WelcomeScreen({navigation}) {
           <Button
             containerStyle={styles.Continueasanonymus}
             style={styles.ContinueasanonymusTex}
-            onPress={() => navigation.navigate('Signup')}>
+            onPress={() => navigation.navigate('Home')}>
           Continue as {"\n"}anonymus
           </Button>
           <Image source={ImageConfidencial} style={styles.imageConfidencial}></Image>
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
   loginText: {
     color: AppStyles.color.white,
     fontSize: 18,
-    fontFamily:"Avenir Light"
+    //fontFamily:"Avenir Light"
   },
   signupContainer: {
     width: AppStyles.buttonWidth.main,
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
   signupText: {
     color: AppStyles.color.white,
     fontSize: 18,
-    fontFamily:"Avenir-Light"
+    //fontFamily:"Avenir-Light"
   },
   Continueasanonymus:{
     width: AppStyles.buttonWidth.main,
@@ -128,8 +132,8 @@ const styles = StyleSheet.create({
   },
   ContinueasanonymusTex:{
     color: AppStyles.color.white,
-    fontSize: 18,
-    fontFamily:"Avenir-Light"
+    fontSize: 18
+    //fontFamily:"Avenir-Light"
     
   },
   spinner: {
