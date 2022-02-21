@@ -18,9 +18,9 @@ const LogoImage = require("../assets/Logo_4BH_375.png");
 const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
 
 
-
-function WelcomeScreen({navigation}) {
-  const [isLoading, setIsLoading] = useState(true);
+ 
+  export default function WelcomeScreen({navigation}) {
+  
 
   //const dispatch = useDispatch();
 
@@ -29,19 +29,19 @@ function WelcomeScreen({navigation}) {
   //}, []);
 
 
-
+  
   //if (isLoading == true) {
   //  return (
-  //    <ActivityIndicator
+    //    <ActivityIndicator
   //      style={styles.spinner}
   //      size="large"
   //      color={AppStyles.color.tint}
   //    />
   //  );
   //}
+  
   return (
- 
-    <View style={styles.container}>
+  <View style={styles.container}>
      <Image source={backImage} style={styles.backImage} />
           <View style={styles.whiteSheet} />
         <Image source={LogoImage} style={styles.logoImage} />
@@ -67,11 +67,11 @@ function WelcomeScreen({navigation}) {
         
     </View>
     
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
+    );
+  }
+  
+  const styles = StyleSheet.create({
+    container: {
      alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
@@ -154,4 +154,3 @@ const styles = StyleSheet.create({
   }
 });
 
-export default WelcomeScreen;

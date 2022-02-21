@@ -20,7 +20,7 @@ return (
       {children}
     </AuthenticatedUserContext.Provider>
   );
-};
+}
 
 function ChatStack() {
   return (
@@ -33,12 +33,10 @@ function ChatStack() {
 
 function AuthStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-       <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
+    <Stack.Navigator defaultScreenOptions={ WelcomeScreen } screenOptions={{headerShown:false}}>
+        <Stack.Screen name='wel' component={ WelcomeScreen} />
         <Stack.Screen name='Login' component={Login} />
-      <Stack.Screen name='Signup' component={Signup} />
-      <Stack.Screen name='Home' component={Home} />    
-      <Stack.Screen name='Chat' component={Chat} />
+        <Stack.Screen name='Signup' component={Signup} />
     </Stack.Navigator>
   );
 }
