@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
-const backImage = require("../assets/BG_4BH_1.png");
+
+const backImage = require("../assets/back.png");
+const LogoImage = require("../assets/Logo_4BH_375.png");
 
 export default function Login({ navigation }) {
 
@@ -22,6 +24,7 @@ export default function Login({ navigation }) {
       <Image source={backImage} style={styles.backImage} />
       <View style={styles.whiteSheet} />
       <SafeAreaView style={styles.form}>
+      <Image source={LogoImage} style={styles.logoImage} />
         <Text style={styles.title}>Log In</Text>
          <TextInput
         style={styles.input}
@@ -44,16 +47,16 @@ export default function Login({ navigation }) {
         onChangeText={(text) => setPassword(text)}
       />
       <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
-        <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Log In</Text>
+        <Text style={{fontWeight: 'bold',fontFamily: "sans-serif", color: '#fff', fontSize: 16}}> Log In</Text>
       </TouchableOpacity>
       <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
         <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Don't have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-          <Text style={{color: '#3d5975', fontWeight: '600', fontSize: 14}}> Sign Up</Text>
+          <Text style={{color: '#3d5975',fontFamily: "sans-serif", fontWeight: '600', fontSize: 11}}> Sign Up</Text>
         </TouchableOpacity>
       </View>
       <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
-        <Text style={{color: '#3d5975', fontWeight: '600', fontSize: 14}}>{`Be confident \n Your data and information are confident`}</Text>
+        <Text style={{color: '#3d5975',fontFamily: "sans-serif", fontWeight: '600', fontSize: 14}}>Accept terms</Text>
       </View>
       </SafeAreaView>
       <StatusBar barStyle="light-content" />
@@ -66,16 +69,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   title: {
-    fontSize: 36,
-    fontWeight: 'bold',
+    fontSize: 35,
+    fontFamily: "sans-serif",
     color: "#3d5975",
     alignSelf: "center",
     paddingBottom: 24,
   },
+  logoImage: {
+    width: 220,
+    height: 65,
+    alignSelf: "center",
+    bottom: 10,
+  },
   input: {
     backgroundColor: "#e5ebf2",
     color: "#3d5975",
-    fontWeight: 'bold',
+    fontFamily: "sans-serif",
     height: 58,
     alignSelf: "center",
     width:300,
@@ -99,8 +108,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 35,
     bottom: 35,
-    backgroundColor: '#f6f9fe',
-    borderRadius: 30,
+    backgroundColor: '#EFF6FB',
+    borderRadius: 15,
   },
   form: {
     flex: 1,
@@ -108,10 +117,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
   },
   button: {
-    backgroundColor: '#4682b4',
+    backgroundColor: '#373b4d',
     height: 58,
     alignSelf: "center",
     width:300,
+    fontFamily: "sans-serif",
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
