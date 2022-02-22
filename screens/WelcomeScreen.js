@@ -13,7 +13,7 @@ import Signup from './Signup';
 import Chat from './Chat';
 import Home from './Home';
 
-const backImage = require("../assets/BG_4BH_375_1.png");
+const backImage = require("../assets/BG_4BH_375_2.png");
 const LogoImage = require("../assets/Logo_4BH_375.png");
 const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
 
@@ -60,7 +60,7 @@ const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
           <Button
             containerStyle={styles.Continueasanonymus}
             style={styles.ContinueasanonymusTex}
-            onPress={() => navigation.navigate('Home')}>
+            onPress={() => navigation.navigate('Incog')}>
           Continue as {"\n"}anonymus
           </Button>
           <Image source={ImageConfidencial} style={styles.imageConfidencial}></Image>
