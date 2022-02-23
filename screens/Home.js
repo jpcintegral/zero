@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
-import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, Image, StyleSheet  } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
 import colors from '../colors';
 import { Entypo } from '@expo/vector-icons';
+import { Video, AVPlaybackStatus } from 'expo-av';
 const catImageUrl = "https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d";
 const backImage = require("../assets/BG_4BH_375_2.png");
+const backvideo = require("../assets/video/videomov.mov");
 
 
 
 const Home = () => {
 
     const navigation = useNavigation();
-
+    const video = React.useRef(null);
+    const [status, setStatus] = React.useState({});
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
@@ -34,13 +37,21 @@ const Home = () => {
     return (
         <View style={styles.container}>
               <Image source={backImage} style={styles.backImage} />
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Chat")}
-                style={styles.chatButton}
-            >
-                <Entypo name="chat" size={24} color={colors.lightGray} />
-            </TouchableOpacity>
-        </View>
+        <Video
+        ref={video}
+        style={styles.backgroundVideo}
+        source={backvideo}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+                       <TouchableOpacity
+                           onPress={() => navigation.navigate("Chat")}
+                           style={styles.chatButton}> 
+                           <Entypo name="chat" size={24} color={colors.lightGray} />
+                       </TouchableOpacity>
+                   </View>
     );
     };
 
@@ -77,5 +88,13 @@ const Home = () => {
     top: 0,
     resizeMode: 'cover',
     backgroundColor:"#7FCFEF",
-  }
+  },backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+     width:"100%",
+     height:400
+  },
     });
