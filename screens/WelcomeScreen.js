@@ -13,62 +13,77 @@ import Signup from './Signup';
 import Chat from './Chat';
 import Home from './Home';
 
-const backImage = require("../assets/BG_4BH_375_1.png");
+const backImage = require("../assets/BG_4BH_375_2.png");
 const LogoImage = require("../assets/Logo_4BH_375.png");
 const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
+const Loadinggif = require("../assets/Loading_4BH.gif");
 
 
  
   export default function WelcomeScreen({navigation}) {
   
-
   //const dispatch = useDispatch();
 
   //useEffect(() => {
   //  tryToLoginFirst();
   //}, []);
 
-
-  
+ 
   //if (isLoading == true) {
-  //  return (
-    //    <ActivityIndicator
-  //      style={styles.spinner}
-  //      size="large"
-  //      color={AppStyles.color.tint}
-  //    />
-  //  );
-  //}
+   // return (
+    //<ActivityIndicator
+    //    style={styles.spinner}
+    //    source={Loadinggif}
+    //    size="large"
+    //    color={AppStyles.color.tint}
+    //  />
+    //);
+ // }
+ const [loading, setLoading] = useState(false);
+
+ const startLoading = () => {
+   setLoading(true);
+   setTimeout(() => {
+    
+   }, 300);
+ };
   
   return (
-  <View style={styles.container}>
-     <Image source={backImage} style={styles.backImage} />
-          <View style={styles.whiteSheet} />
-        <Image source={LogoImage} style={styles.logoImage} />
-          <Button
-            containerStyle={styles.loginContainer}
-            style={styles.loginText}
-            onPress={() => navigation.navigate('Login')}>
-            Log In
-          </Button>
-          <Button
-            containerStyle={styles.signupContainer}
-            style={styles.signupText}
-            onPress={() => navigation.navigate('Signup')}>
-            Sign Up
-          </Button>
-          <Button
-            containerStyle={styles.Continueasanonymus}
-            style={styles.ContinueasanonymusTex}
-            onPress={() => navigation.navigate('Home')}>
-          Continue as {"\n"}anonymus
-          </Button>
-          <Image source={ImageConfidencial} style={styles.imageConfidencial}></Image>
-        
-    </View>
+ 
     
+  <View style={styles.container}>
+      
+     <Image source={backImage} style={styles.backImage} />
+
+       <View style={styles.whiteSheet} />
+       <Image source={LogoImage} style={styles.logoImage} />
+         <Button
+           containerStyle={styles.loginContainer}
+           style={styles.loginText}
+           onPress={() => navigation.navigate('Login')}>
+           Log In
+         </Button>
+         <Button
+           containerStyle={styles.signupContainer}
+           style={styles.signupText}
+           onPress={() => navigation.navigate('Signup')}>
+           Sign Up
+         </Button>
+         <Button
+           containerStyle={styles.Continueasanonymus}
+           style={styles.ContinueasanonymusTex}
+           onPress={() => navigation.navigate('Incog')}>
+         Continue as {"\n"}anonymus
+         </Button>
+         <Image source={ImageConfidencial} style={styles.imageConfidencial}></Image>
+     
+    </View>
+   
     );
+   
+    
   }
+ 
   
   const styles = StyleSheet.create({
     container: {
@@ -138,6 +153,7 @@ const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
   },
   spinner: {
     marginTop: 200,
+  
   },
   backImage: {
     width: "100%",
@@ -151,6 +167,9 @@ const ImageConfidencial = require("../assets/BeConfi_4BH_375.png");
     top: 30,
     width: "60%",
     height: 60,
+  },
+  spinnerTextStyle: {
+    color: '#000',
   }
 });
 
